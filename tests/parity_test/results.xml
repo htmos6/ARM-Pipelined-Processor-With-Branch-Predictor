@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1685367698" />
+    <testcase name="parity_test" classname="parity_test" file="D:\Desktop\metu20232\ee446\LAB\lab4\LAB4\tests\parity_test\parity_test.py" lineno="75" time="0.07928967475891113" sim_time_ns="1936000" ratio_time="24416798.352201827" />
+  </testsuite>
+</testsuites>

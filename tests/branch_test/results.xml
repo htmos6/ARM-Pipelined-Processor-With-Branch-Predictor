@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1685367431" />
+    <testcase name="branch_test" classname="branch_test" file="D:\Desktop\metu20232\ee446\LAB\lab4\LAB4\tests\branch_test\branch_test.py" lineno="60" time="0.015619993209838867" sim_time_ns="176000" ratio_time="11267610.531939251" />
+  </testsuite>
+</testsuites>

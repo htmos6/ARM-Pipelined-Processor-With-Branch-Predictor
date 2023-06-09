@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1686259772" />
+    <testcase name="arrays_sum_test" classname="array_sum_test" file="D:\Desktop\metu20232\ee446\project\tests\array_sum_test\array_sum_test.py" lineno="82" time="0.14053678512573242" sim_time_ns="726000" ratio_time="5165907.27011777" />
+  </testsuite>
+</testsuites>
