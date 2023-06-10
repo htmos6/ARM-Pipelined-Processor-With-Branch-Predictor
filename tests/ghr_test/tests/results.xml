@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1686412663" />
+    <testcase name="GHR" classname="GHR" file="C:\Users\Legion\Desktop\Quartus\EE446-LABORATORY\Pipelined-Processor\Pipelined-Processor\tests\ghr_test\tests\GHR.py" lineno="15" time="0.002036571502685547" sim_time_ns="88000" ratio_time="43209874.97073285" />
+  </testsuite>
+</testsuites>

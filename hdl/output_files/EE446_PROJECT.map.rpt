@@ -1,931 +1,85 @@
-Analysis & Elaboration report for EE446_PROJECT
-Fri Jun  9 00:02:55 2023
-Quartus Prime Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
+Analysis & Synthesis report for EE446_PROJECT
+Sat Jun 10 18:26:51 2023
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Elaboration Summary
-  3. Parallel Compilation
-  4. Parameter Settings for User Entity Instance: datapath:datapath|ALU:inst15
-  5. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regRD1
-  6. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1
-  7. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[0].Reg
-  8. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[1].Reg
-  9. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[2].Reg
- 10. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[3].Reg
- 11. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[4].Reg
- 12. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[5].Reg
- 13. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[6].Reg
- 14. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[7].Reg
- 15. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[8].Reg
- 16. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[9].Reg
- 17. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[10].Reg
- 18. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[11].Reg
- 19. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[12].Reg
- 20. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[13].Reg
- 21. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[14].Reg
- 22. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Mux_16to1:mux_0
- 23. Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Mux_16to1:mux_1
- 24. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst11
- 25. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst18
- 26. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regALUOutM
- 27. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regALUResultE
- 28. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regReadDataW
- 29. Parameter Settings for User Entity Instance: datapath:datapath|Memory:inst17
- 30. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regWriteDataE
- 31. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regRD2
- 32. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regPCPlus4
- 33. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regPCPlus4
- 34. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regPCPlus4
- 35. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:FetchReg
- 36. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst
- 37. Parameter Settings for User Entity Instance: datapath:datapath|Adder:PCPlus4
- 38. Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst10
- 39. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst6
- 40. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regWA3W
- 41. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regWAEM
- 42. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regWA3E
- 43. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:decode_regInst
- 44. Parameter Settings for User Entity Instance: datapath:datapath|Instruction_memory:inst5
- 45. Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst7
- 46. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst2
- 47. Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst3
- 48. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst4
- 49. Parameter Settings for User Entity Instance: datapath:datapath|shifter:inst14
- 50. Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst13
- 51. Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regExtImm
- 52. Parameter Settings for User Entity Instance: ConditionalLogic:conditionalLogic|Register_sync_rw:r1
- 53. Parameter Settings for User Entity Instance: ConditionalLogic:conditionalLogic|Register_sync_rw:r2
- 54. Parameter Settings for User Entity Instance: Decoder_control:decoder_control|ALUDecoder:ALUdecoder
- 55. Parameter Settings for User Entity Instance: Register_simple:execute_PCSrc
- 56. Parameter Settings for User Entity Instance: Register_simple:execute_BranchD
- 57. Parameter Settings for User Entity Instance: Register_simple:execute_RegWriteD
- 58. Parameter Settings for User Entity Instance: Register_simple:execute_MemWriteD
- 59. Parameter Settings for User Entity Instance: Register_simple:execute_MemtoRegD
- 60. Parameter Settings for User Entity Instance: Register_simple:execute_ALUControlD
- 61. Parameter Settings for User Entity Instance: Register_simple:execute_ALUSrcD
- 62. Parameter Settings for User Entity Instance: Register_simple:execute_FlagWriteD
- 63. Parameter Settings for User Entity Instance: Register_simple:execute_Cond
- 64. Parameter Settings for User Entity Instance: Register_simple:execute_RegSrcD2
- 65. Parameter Settings for User Entity Instance: Register_simple:execute_shamtD
- 66. Parameter Settings for User Entity Instance: Register_simple:execute_shiftControlD
- 67. Parameter Settings for User Entity Instance: Register_simple:execute_WriteSrcD
- 68. Parameter Settings for User Entity Instance: Register_simple:memory_PCSrcE_cond
- 69. Parameter Settings for User Entity Instance: Register_simple:memory_RegWriteE_cond
- 70. Parameter Settings for User Entity Instance: Register_simple:memory_MemWriteE_cond
- 71. Parameter Settings for User Entity Instance: Register_simple:memory_MemtoRegE
- 72. Parameter Settings for User Entity Instance: Register_simple:memory_WriteSrcE
- 73. Parameter Settings for User Entity Instance: Register_simple:memory_RegSrcE
- 74. Parameter Settings for User Entity Instance: Register_simple:writeback_PCSrcM
- 75. Parameter Settings for User Entity Instance: Register_simple:writeback_RegWriteM
- 76. Parameter Settings for User Entity Instance: Register_simple:writeback_MemtoRegM
- 77. Parameter Settings for User Entity Instance: Register_simple:writeback_WriteSrcM
- 78. Parameter Settings for User Entity Instance: Register_simple:writeback_RegSrcM
- 79. Analysis & Elaboration Settings
- 80. Port Connectivity Checks: "datapath:datapath|Register_file:inst1|Decoder_4to16:dec"
- 81. Analysis & Elaboration Messages
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: Top-level Entity: |GHR
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2023  Intel Corporation. All rights reserved.
-Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and any partner logic 
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
-to the terms and conditions of the Intel Program License 
-Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel FPGA IP License Agreement, or other applicable license
-agreement, including, without limitation, that your use is for
-the sole purpose of programming logic devices manufactured by
-Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details, at
-https://fpgasoftware.intel.com/eula.
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
 
-
-
-+--------------------------------------------------------------------------------+
-; Analysis & Elaboration Summary                                                 ;
-+-------------------------------+------------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Fri Jun  9 00:02:55 2023          ;
-; Quartus Prime Version         ; 22.1std.1 Build 917 02/14/2023 SC Lite Edition ;
-; Revision Name                 ; EE446_PROJECT                                  ;
-; Top-level Entity Name         ; topmodule                                      ;
-; Family                        ; Cyclone V                                      ;
-; Logic utilization (in ALMs)   ; N/A until Partition Merge                      ;
-; Total registers               ; N/A until Partition Merge                      ;
-; Total pins                    ; N/A until Partition Merge                      ;
-; Total virtual pins            ; N/A until Partition Merge                      ;
-; Total block memory bits       ; N/A until Partition Merge                      ;
-; Total PLLs                    ; N/A until Partition Merge                      ;
-; Total DLLs                    ; N/A until Partition Merge                      ;
-+-------------------------------+------------------------------------------------+
-
-
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|ALU:inst15 ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regRD1 ;
-+----------------+-------+----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                 ;
-+----------------+-------+----------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                       ;
-+----------------+-------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1 ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; WIDTH          ; 32    ; Unsigned Integer                                          ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[0].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[1].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[2].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[3].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[4].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[5].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[6].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[7].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[8].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[9].Reg ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                        ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                              ;
-+----------------+-------+---------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[10].Reg ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                         ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                               ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[11].Reg ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                         ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                               ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[12].Reg ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                         ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                               ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[13].Reg ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                         ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                               ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Register_sync_rw:registers[14].Reg ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                                         ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                                               ;
-+----------------+-------+----------------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Mux_16to1:mux_0 ;
-+----------------+-------+---------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                      ;
-+----------------+-------+---------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                            ;
-+----------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_file:inst1|Mux_16to1:mux_1 ;
-+----------------+-------+---------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                      ;
-+----------------+-------+---------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                            ;
-+----------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst11 ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst18 ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regALUOutM ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regALUResultE ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regReadDataW ;
-+----------------+-------+------------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                         ;
-+----------------+-------+------------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                               ;
-+----------------+-------+------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Memory:inst17 ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; BYTE_SIZE      ; 4     ; Signed Integer                                      ;
-; ADDR_WIDTH     ; 32    ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regWriteDataE ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regRD2 ;
-+----------------+-------+----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                 ;
-+----------------+-------+----------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                       ;
-+----------------+-------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regPCPlus4 ;
-+----------------+-------+----------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                       ;
-+----------------+-------+----------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                             ;
-+----------------+-------+----------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regPCPlus4 ;
-+----------------+-------+-------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                    ;
-+----------------+-------+-------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                          ;
-+----------------+-------+-------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regPCPlus4 ;
-+----------------+-------+--------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                     ;
-+----------------+-------+--------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                           ;
-+----------------+-------+--------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:FetchReg ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Adder:PCPlus4 ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst10 ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; W              ; 32    ; Signed Integer                                        ;
-; value          ; 4     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst6 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:writeback_regWA3W ;
-+----------------+-------+-------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                    ;
-+----------------+-------+-------------------------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                                          ;
-+----------------+-------+-------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:memory_regWAEM ;
-+----------------+-------+----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                 ;
-+----------------+-------+----------------------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                                       ;
-+----------------+-------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regWA3E ;
-+----------------+-------+-----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                  ;
-+----------------+-------+-----------------------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                                        ;
-+----------------+-------+-----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:decode_regInst ;
-+----------------+-------+----------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                 ;
-+----------------+-------+----------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                       ;
-+----------------+-------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Instruction_memory:inst5 ;
-+----------------+-------+----------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                           ;
-+----------------+-------+----------------------------------------------------------------+
-; BYTE_SIZE      ; 4     ; Signed Integer                                                 ;
-; ADDR_WIDTH     ; 32    ; Signed Integer                                                 ;
-+----------------+-------+----------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst7 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; W              ; 4     ; Signed Integer                                       ;
-; value          ; 14    ; Unsigned Integer                                     ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst2 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|ConstGen:inst3 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; W              ; 4     ; Signed Integer                                       ;
-; value          ; 15    ; Unsigned Integer                                     ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst4 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|shifter:inst14 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Mux_2to1:inst13 ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: datapath:datapath|Register_simple:execute_regExtImm ;
-+----------------+-------+-------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                    ;
-+----------------+-------+-------------------------------------------------------------------------+
-; WIDTH          ; 32    ; Signed Integer                                                          ;
-+----------------+-------+-------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ConditionalLogic:conditionalLogic|Register_sync_rw:r1 ;
-+----------------+-------+---------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                      ;
-+----------------+-------+---------------------------------------------------------------------------+
-; WIDTH          ; 2     ; Signed Integer                                                            ;
-+----------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: ConditionalLogic:conditionalLogic|Register_sync_rw:r2 ;
-+----------------+-------+---------------------------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                                      ;
-+----------------+-------+---------------------------------------------------------------------------+
-; WIDTH          ; 2     ; Signed Integer                                                            ;
-+----------------+-------+---------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Decoder_control:decoder_control|ALUDecoder:ALUdecoder ;
-+---------------------+-------+----------------------------------------------------------------------+
-; Parameter Name      ; Value ; Type                                                                 ;
-+---------------------+-------+----------------------------------------------------------------------+
-; AND                 ; 0000  ; Unsigned Binary                                                      ;
-; EXOR                ; 0001  ; Unsigned Binary                                                      ;
-; SubtractionAB       ; 0010  ; Unsigned Binary                                                      ;
-; SubtractionBA       ; 0011  ; Unsigned Binary                                                      ;
-; Addition            ; 0100  ; Unsigned Binary                                                      ;
-; Addition_Carry      ; 0101  ; Unsigned Binary                                                      ;
-; SubtractionAB_Carry ; 0110  ; Unsigned Binary                                                      ;
-; SubtractionBA_Carry ; 0111  ; Unsigned Binary                                                      ;
-; ORR                 ; 1100  ; Unsigned Binary                                                      ;
-; Move                ; 1101  ; Unsigned Binary                                                      ;
-; Bit_Clear           ; 1110  ; Unsigned Binary                                                      ;
-; Move_Not            ; 1111  ; Unsigned Binary                                                      ;
-+---------------------+-------+----------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_PCSrc ;
-+----------------+-------+---------------------------------------------------+
-; Parameter Name ; Value ; Type                                              ;
-+----------------+-------+---------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                    ;
-+----------------+-------+---------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_BranchD ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_RegWriteD ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_MemWriteD ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_MemtoRegD ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_ALUControlD ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_ALUSrcD ;
-+----------------+-------+-----------------------------------------------------+
-; Parameter Name ; Value ; Type                                                ;
-+----------------+-------+-----------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                      ;
-+----------------+-------+-----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_FlagWriteD ;
-+----------------+-------+--------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                   ;
-+----------------+-------+--------------------------------------------------------+
-; WIDTH          ; 2     ; Signed Integer                                         ;
-+----------------+-------+--------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_Cond ;
-+----------------+-------+--------------------------------------------------+
-; Parameter Name ; Value ; Type                                             ;
-+----------------+-------+--------------------------------------------------+
-; WIDTH          ; 4     ; Signed Integer                                   ;
-+----------------+-------+--------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_RegSrcD2 ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_shamtD ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; WIDTH          ; 5     ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_shiftControlD ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; WIDTH          ; 2     ; Signed Integer                                            ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:execute_WriteSrcD ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+---------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_PCSrcE_cond ;
-+----------------+-------+--------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                   ;
-+----------------+-------+--------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                         ;
-+----------------+-------+--------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_RegWriteE_cond ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                            ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_MemWriteE_cond ;
-+----------------+-------+-----------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                      ;
-+----------------+-------+-----------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                            ;
-+----------------+-------+-----------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_MemtoRegE ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_WriteSrcE ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:memory_RegSrcE ;
-+----------------+-------+----------------------------------------------------+
-; Parameter Name ; Value ; Type                                               ;
-+----------------+-------+----------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                     ;
-+----------------+-------+----------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:writeback_PCSrcM ;
-+----------------+-------+------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                 ;
-+----------------+-------+------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                       ;
-+----------------+-------+------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:writeback_RegWriteM ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:writeback_MemtoRegM ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:writeback_WriteSrcM ;
-+----------------+-------+---------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                    ;
-+----------------+-------+---------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                          ;
-+----------------+-------+---------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: Register_simple:writeback_RegSrcM ;
-+----------------+-------+-------------------------------------------------------+
-; Parameter Name ; Value ; Type                                                  ;
-+----------------+-------+-------------------------------------------------------+
-; WIDTH          ; 1     ; Signed Integer                                        ;
-+----------------+-------+-------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+; Analysis & Synthesis Summary                                                 ;
++---------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat Jun 10 18:26:51 2023      ;
+; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                   ; EE446_PROJECT                              ;
+; Top-level Entity Name           ; GHR                                        ;
+; Family                          ; Cyclone V                                  ;
+; Logic utilization (in ALMs)     ; N/A                                        ;
+; Total registers                 ; 2                                          ;
+; Total pins                      ; 7                                          ;
+; Total virtual pins              ; 0                                          ;
+; Total block memory bits         ; 0                                          ;
+; Total DSP Blocks                ; 0                                          ;
+; Total HSSI RX PCSs              ; 0                                          ;
+; Total HSSI PMA RX Deserializers ; 0                                          ;
+; Total HSSI TX PCSs              ; 0                                          ;
+; Total HSSI TX Channels          ; 0                                          ;
+; Total PLLs                      ; 0                                          ;
+; Total DLLs                      ; 0                                          ;
++---------------------------------+--------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Elaboration Settings                                                                                           ;
+; Analysis & Synthesis Settings                                                                                             ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
-; Top-level entity name                                                           ; topmodule          ; EE446_PROJECT      ;
-; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Top-level entity name                                                           ; GHR                ; EE446_PROJECT      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
-; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
 ; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
 ; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
 ; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
-; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
 ; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
 ; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
@@ -976,7 +130,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Report Connectivity Checks                                                      ; On                 ; On                 ;
 ; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
 ; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
-; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; PowerPlay Power Optimization                                                    ; Normal compilation ; Normal compilation ;
 ; HDL message level                                                               ; Level2             ; Level2             ;
 ; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
 ; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
@@ -992,119 +146,193 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
 ; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
 ; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
 ; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
-; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "datapath:datapath|Register_file:inst1|Decoder_4to16:dec"                               ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; OUT[15] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+---------------------------------+
-; Analysis & Elaboration Messages ;
-+---------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; GHR.v                            ; yes             ; User Verilog HDL File  ; C:/Users/Legion/Desktop/Quartus/EE446-LABORATORY/Pipelined-Processor/Pipelined-Processor/hdl/GHR.v ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 2           ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 3           ;
+;     -- 7 input functions                    ; 0           ;
+;     -- 6 input functions                    ; 0           ;
+;     -- 5 input functions                    ; 0           ;
+;     -- 4 input functions                    ; 0           ;
+;     -- <=3 input functions                  ; 3           ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 2           ;
+;                                             ;             ;
+; I/O pins                                    ; 7           ;
+; Total DSP Blocks                            ; 0           ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 3           ;
+; Total fan-out                               ; 21          ;
+; Average fan-out                             ; 1.11        ;
++---------------------------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                       ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+; |GHR                       ; 3 (3)             ; 2 (2)        ; 0                 ; 0          ; 7    ; 0            ; |GHR                ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; Out[1]~reg0                           ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 1 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 2     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |GHR|Out[0]~reg0           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |GHR ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; W              ; 3     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Elaboration
-    Info: Version 22.1std.1 Build 917 02/14/2023 SC Lite Edition
-    Info: Processing started: Fri Jun  9 00:02:37 2023
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EE446_PROJECT -c EE446_PROJECT --analysis_and_elaboration
-Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Sat Jun 10 18:26:50 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EE446_PROJECT -c EE446_PROJECT
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file topmodule.v
-    Info (12023): Found entity 1: topmodule File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 1
+    Info (12023): Found entity 1: topmodule
 Info (12021): Found 1 design units, including 1 entities, in source file shifter.v
-    Info (12023): Found entity 1: shifter File: D:/Desktop/metu20232/ee446/project/hdl/shifter.v Line: 1
+    Info (12023): Found entity 1: shifter
 Info (12021): Found 1 design units, including 1 entities, in source file register_sync_rw.v
-    Info (12023): Found entity 1: Register_sync_rw File: D:/Desktop/metu20232/ee446/project/hdl/Register_sync_rw.v Line: 1
+    Info (12023): Found entity 1: Register_sync_rw
 Info (12021): Found 1 design units, including 1 entities, in source file register_simple.v
-    Info (12023): Found entity 1: Register_simple File: D:/Desktop/metu20232/ee446/project/hdl/Register_simple.v Line: 1
+    Info (12023): Found entity 1: Register_simple
 Info (12021): Found 1 design units, including 1 entities, in source file register_file.v
-    Info (12023): Found entity 1: Register_file File: D:/Desktop/metu20232/ee446/project/hdl/Register_file.v Line: 1
+    Info (12023): Found entity 1: Register_file
 Info (12021): Found 1 design units, including 1 entities, in source file pclogic.v
-    Info (12023): Found entity 1: PCLogic File: D:/Desktop/metu20232/ee446/project/hdl/PCLogic.v Line: 1
+    Info (12023): Found entity 1: PCLogic
 Info (12021): Found 1 design units, including 1 entities, in source file mux_16to1.v
-    Info (12023): Found entity 1: Mux_16to1 File: D:/Desktop/metu20232/ee446/project/hdl/Mux_16to1.v Line: 1
+    Info (12023): Found entity 1: Mux_16to1
 Info (12021): Found 1 design units, including 1 entities, in source file mux_4to1.v
-    Info (12023): Found entity 1: Mux_4to1 File: D:/Desktop/metu20232/ee446/project/hdl/Mux_4to1.v Line: 1
+    Info (12023): Found entity 1: Mux_4to1
 Info (12021): Found 1 design units, including 1 entities, in source file mux_2to1.v
-    Info (12023): Found entity 1: Mux_2to1 File: D:/Desktop/metu20232/ee446/project/hdl/Mux_2to1.v Line: 1
+    Info (12023): Found entity 1: Mux_2to1
 Info (12021): Found 1 design units, including 1 entities, in source file memory.v
-    Info (12023): Found entity 1: Memory File: D:/Desktop/metu20232/ee446/project/hdl/Memory.v Line: 6
+    Info (12023): Found entity 1: Memory
 Info (12021): Found 1 design units, including 1 entities, in source file maindecoder.v
-    Info (12023): Found entity 1: MainDecoder File: D:/Desktop/metu20232/ee446/project/hdl/MainDecoder.v Line: 1
+    Info (12023): Found entity 1: MainDecoder
 Info (12021): Found 1 design units, including 1 entities, in source file instruction_memory.v
-    Info (12023): Found entity 1: Instruction_memory File: D:/Desktop/metu20232/ee446/project/hdl/Instruction_memory.v Line: 6
+    Info (12023): Found entity 1: Instruction_memory
 Info (12021): Found 1 design units, including 1 entities, in source file extender.v
-    Info (12023): Found entity 1: Extender File: D:/Desktop/metu20232/ee446/project/hdl/Extender.v Line: 1
+    Info (12023): Found entity 1: Extender
 Info (12021): Found 1 design units, including 1 entities, in source file decoder_control.v
-    Info (12023): Found entity 1: Decoder_control File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_control.v Line: 1
+    Info (12023): Found entity 1: Decoder_control
 Info (12021): Found 1 design units, including 1 entities, in source file decoder_4to16.v
-    Info (12023): Found entity 1: Decoder_4to16 File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_4to16.v Line: 1
+    Info (12023): Found entity 1: Decoder_4to16
 Info (12021): Found 1 design units, including 1 entities, in source file decoder_2to4.v
-    Info (12023): Found entity 1: Decoder_2to4 File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_2to4.v Line: 1
+    Info (12023): Found entity 1: Decoder_2to4
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.bdf
     Info (12023): Found entity 1: datapath
 Info (12021): Found 1 design units, including 1 entities, in source file constgen.v
-    Info (12023): Found entity 1: ConstGen File: D:/Desktop/metu20232/ee446/project/hdl/ConstGen.v Line: 3
+    Info (12023): Found entity 1: ConstGen
 Info (12021): Found 1 design units, including 1 entities, in source file conditioncheck.v
-    Info (12023): Found entity 1: ConditionCheck File: D:/Desktop/metu20232/ee446/project/hdl/ConditionCheck.v Line: 1
+    Info (12023): Found entity 1: ConditionCheck
 Info (12021): Found 1 design units, including 1 entities, in source file conditionallogic.v
-    Info (12023): Found entity 1: ConditionalLogic File: D:/Desktop/metu20232/ee446/project/hdl/ConditionalLogic.v Line: 1
+    Info (12023): Found entity 1: ConditionalLogic
 Info (12021): Found 1 design units, including 1 entities, in source file aludecoder.v
-    Info (12023): Found entity 1: ALUDecoder File: D:/Desktop/metu20232/ee446/project/hdl/ALUDecoder.v Line: 1
+    Info (12023): Found entity 1: ALUDecoder
 Info (12021): Found 1 design units, including 1 entities, in source file alu.v
-    Info (12023): Found entity 1: ALU File: D:/Desktop/metu20232/ee446/project/hdl/ALU.v Line: 1
+    Info (12023): Found entity 1: ALU
 Info (12021): Found 1 design units, including 1 entities, in source file adder.v
-    Info (12023): Found entity 1: Adder File: D:/Desktop/metu20232/ee446/project/hdl/Adder.v Line: 1
-Warning (10222): Verilog HDL Parameter Declaration warning at shifter.v(13): Parameter Declaration in module "shifter" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Desktop/metu20232/ee446/project/hdl/shifter.v Line: 13
-Warning (10222): Verilog HDL Parameter Declaration warning at ALU.v(24): Parameter Declaration in module "ALU" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/Desktop/metu20232/ee446/project/hdl/ALU.v Line: 24
-Info (12127): Elaborating entity "topmodule" for the top level hierarchy
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:datapath" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 87
-Info (12128): Elaborating entity "ALU" for hierarchy "datapath:datapath|ALU:inst15"
-Info (12128): Elaborating entity "Register_simple" for hierarchy "datapath:datapath|Register_simple:execute_regRD1"
-Info (12128): Elaborating entity "Register_file" for hierarchy "datapath:datapath|Register_file:inst1"
-Info (12128): Elaborating entity "Register_sync_rw" for hierarchy "datapath:datapath|Register_file:inst1|Register_sync_rw:registers[0].Reg" File: D:/Desktop/metu20232/ee446/project/hdl/Register_file.v Line: 15
-Info (12128): Elaborating entity "Decoder_4to16" for hierarchy "datapath:datapath|Register_file:inst1|Decoder_4to16:dec" File: D:/Desktop/metu20232/ee446/project/hdl/Register_file.v Line: 19
-Info (12128): Elaborating entity "Mux_16to1" for hierarchy "datapath:datapath|Register_file:inst1|Mux_16to1:mux_0" File: D:/Desktop/metu20232/ee446/project/hdl/Register_file.v Line: 39
-Info (12128): Elaborating entity "Mux_2to1" for hierarchy "datapath:datapath|Mux_2to1:inst11"
-Info (12128): Elaborating entity "Memory" for hierarchy "datapath:datapath|Memory:inst17"
-Warning (10850): Verilog HDL warning at Memory.v(21): number of words (76) in memory file does not match the number of elements in the address range [0:99] File: D:/Desktop/metu20232/ee446/project/hdl/Memory.v Line: 21
-Warning (10855): Verilog HDL warning at Memory.v(16): initial value for variable mem should be constant File: D:/Desktop/metu20232/ee446/project/hdl/Memory.v Line: 16
-Info (12128): Elaborating entity "Adder" for hierarchy "datapath:datapath|Adder:PCPlus4"
-Info (12128): Elaborating entity "ConstGen" for hierarchy "datapath:datapath|ConstGen:inst10"
-Info (12128): Elaborating entity "Mux_2to1" for hierarchy "datapath:datapath|Mux_2to1:inst6"
-Info (12128): Elaborating entity "Register_simple" for hierarchy "datapath:datapath|Register_simple:writeback_regWA3W"
-Info (12128): Elaborating entity "Instruction_memory" for hierarchy "datapath:datapath|Instruction_memory:inst5"
-Warning (10850): Verilog HDL warning at Instruction_memory.v(19): number of words (120) in memory file does not match the number of elements in the address range [0:200] File: D:/Desktop/metu20232/ee446/project/hdl/Instruction_memory.v Line: 19
-Warning (10855): Verilog HDL warning at Instruction_memory.v(14): initial value for variable mem should be constant File: D:/Desktop/metu20232/ee446/project/hdl/Instruction_memory.v Line: 14
-Warning (10030): Net "mem" at Instruction_memory.v(11) has no driver or initial value, using a default initial value '0' File: D:/Desktop/metu20232/ee446/project/hdl/Instruction_memory.v Line: 11
-Info (12128): Elaborating entity "ConstGen" for hierarchy "datapath:datapath|ConstGen:inst7"
-Warning (10230): Verilog HDL assignment warning at ConstGen.v(4): truncated value with size 32 to match size of target (4) File: D:/Desktop/metu20232/ee446/project/hdl/ConstGen.v Line: 4
-Info (12128): Elaborating entity "ConstGen" for hierarchy "datapath:datapath|ConstGen:inst3"
-Warning (10230): Verilog HDL assignment warning at ConstGen.v(4): truncated value with size 32 to match size of target (4) File: D:/Desktop/metu20232/ee446/project/hdl/ConstGen.v Line: 4
-Info (12128): Elaborating entity "shifter" for hierarchy "datapath:datapath|shifter:inst14"
-Warning (10230): Verilog HDL assignment warning at shifter.v(20): truncated value with size 64 to match size of target (32) File: D:/Desktop/metu20232/ee446/project/hdl/shifter.v Line: 20
-Info (12128): Elaborating entity "Extender" for hierarchy "datapath:datapath|Extender:inst8"
-Info (12128): Elaborating entity "ConditionalLogic" for hierarchy "ConditionalLogic:conditionalLogic" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 102
-Info (12128): Elaborating entity "ConditionCheck" for hierarchy "ConditionalLogic:conditionalLogic|ConditionCheck:conditionCheck" File: D:/Desktop/metu20232/ee446/project/hdl/ConditionalLogic.v Line: 22
-Info (12128): Elaborating entity "Register_sync_rw" for hierarchy "ConditionalLogic:conditionalLogic|Register_sync_rw:r1" File: D:/Desktop/metu20232/ee446/project/hdl/ConditionalLogic.v Line: 41
-Info (12128): Elaborating entity "Decoder_control" for hierarchy "Decoder_control:decoder_control" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 123
-Info (12128): Elaborating entity "ALUDecoder" for hierarchy "Decoder_control:decoder_control|ALUDecoder:ALUdecoder" File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_control.v Line: 29
-Info (12128): Elaborating entity "PCLogic" for hierarchy "Decoder_control:decoder_control|PCLogic:pclogic" File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_control.v Line: 36
-Info (12128): Elaborating entity "MainDecoder" for hierarchy "Decoder_control:decoder_control|MainDecoder:mainDecoder" File: D:/Desktop/metu20232/ee446/project/hdl/Decoder_control.v Line: 51
-Info (12128): Elaborating entity "Register_simple" for hierarchy "Register_simple:execute_PCSrc" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 133
-Info (12128): Elaborating entity "Register_simple" for hierarchy "Register_simple:execute_FlagWriteD" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 182
-Info (12128): Elaborating entity "Register_simple" for hierarchy "Register_simple:execute_shamtD" File: D:/Desktop/metu20232/ee446/project/hdl/topmodule.v Line: 204
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 11 warnings
-    Info: Peak virtual memory: 4793 megabytes
-    Info: Processing ended: Fri Jun  9 00:02:55 2023
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:21
+    Info (12023): Found entity 1: Adder
+Info (12021): Found 1 design units, including 1 entities, in source file ghr.v
+    Info (12023): Found entity 1: GHR
+Warning (10222): Verilog HDL Parameter Declaration warning at shifter.v(13): Parameter Declaration in module "shifter" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Warning (10222): Verilog HDL Parameter Declaration warning at ALU.v(24): Parameter Declaration in module "ALU" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
+Info (12127): Elaborating entity "GHR" for the top level hierarchy
+Warning (10230): Verilog HDL assignment warning at GHR.v(18): truncated value with size 4 to match size of target (3)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Out[1]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 10 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 3 output pins
+    Info (21061): Implemented 3 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4680 megabytes
+    Info: Processing ended: Sat Jun 10 18:26:51 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 
