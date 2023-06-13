@@ -1,6 +1,6 @@
 <testsuites name="results">
   <testsuite name="all" package="all">
-    <property name="random_seed" value="1686681779" />
-    <testcase name="BTB" classname="BTB" file="C:\Users\Legion\Desktop\Quartus\EE446-LABORATORY\Pipelined-Processor\Pipelined-Processor\tests\btb_test\tests\BTB.py" lineno="15" time="0.001992940902709961" sim_time_ns="20000" ratio_time="10035420.504845077" />
+    <property name="random_seed" value="1686687153" />
+    <testcase name="BTB" classname="BTB" file="C:\Users\Legion\Desktop\Quartus\EE446-LABORATORY\Pipelined-Processor\Pipelined-Processor\tests\btb_test\tests\BTB.py" lineno="15" time="0.0019943714141845703" sim_time_ns="20000" ratio_time="10028222.355050808" />
   </testsuite>
 </testsuites>

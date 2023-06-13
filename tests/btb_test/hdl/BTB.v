@@ -13,7 +13,7 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 		// output reg [2:0] lastUsedID
 	);
 	
-	// reg [39:0] cache [0:2]; // First 8 bits are PC, Remaining 32 bits are BTA
+	reg [39:0] pcOfAluBranchAddressReg; // First 8 bits are PC, Remaining 32 bits are BTA
 	reg [2:0] lastUsedID;
 	reg [39:0] temp0, temp1;
 
@@ -27,6 +27,7 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 	
 	always @(reset or pc or pcOfAluBranchAddress or aluBranchAddress or branchTakenE or branchPredictedE)
 		begin
+			pcOfAluBranchAddressReg = pcOfAluBranchAddress - 4;
 			if (reset == 1)
 				begin
 					lastUsedID = 4; // Reset signal
@@ -90,7 +91,7 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 				begin
 					temp0 = cache0;
 					temp1 = cache1;
-					cache0 = {aluBranchAddress,pcOfAluBranchAddress[7:0]};
+					cache0 = {aluBranchAddress,pcOfAluBranchAddressReg[7:0]};
 					cache1 = temp0;
 					cache2 = temp1;
  				end

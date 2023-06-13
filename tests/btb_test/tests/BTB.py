@@ -70,7 +70,7 @@ async def BTB(dut):
      dut.branchTakenE.value = 1
      dut.branchPredictedE.value = 0
      await Timer(2, units="us")
-     assert dut.cache0.value == 0x0000004428
+     assert dut.cache0.value == 0x0000004424
      assert dut.cache1.value == 0x0000003316
      assert dut.cache2.value == 0x0000002212
 
