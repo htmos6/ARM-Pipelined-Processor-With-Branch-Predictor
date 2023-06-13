@@ -4,6 +4,9 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 		input reset,
 		input [W_PC-1:0] pc, // LSB 8 bits
 		input [31:0] aluBranchAddress,
+		input [31:0] pcOfAluBranchAddress,
+		input [0:0] branchTakenE,
+		input [0:0] branchPredictedE,
 		output reg [W_BTA-1:0] BTA, // MSB 32 bits
 		output reg hit,
 		output reg [39:0] cache0, cache1, cache2
@@ -46,9 +49,10 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 					BTA = cache2[39:8];
 					lastUsedID = 2;
 				end
-			else if ((cache0[7:0] != pc) && (cache1[7:0] != pc) && (cache2[7:0] != pc))
+			else if ((cache0[7:0] != pc) && (cache1[7:0] != pc) && (cache2[7:0] != pc) && (branchTakenE == 1) && (branchPredictedE == 0))
 				begin
 					lastUsedID = 3; // It could not find it in the BTB
+					pcOfAluBranchAddress = pcOfAluBranchAddress - 4;
 				end
 		end
 
@@ -87,7 +91,7 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 				begin
 					temp0 = cache0;
 					temp1 = cache1;
-					cache0 = {aluBranchAddress,pc};
+					cache0 = {aluBranchAddress,pcOfAluBranchAddress[7:0]};
 					cache1 = temp0;
 					cache2 = temp1;
  				end
