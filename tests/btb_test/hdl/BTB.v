@@ -4,10 +4,13 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 		input reset,
 		input [W_PC-1:0] pc, // LSB 8 bits
 		input [31:0] aluBranchAddress,
+		input [31:0] pcOfAluBranchAddress,
+		input [0:0] branchTakenE,
+		input [0:0] branchPredictedE,
 		output reg [W_BTA-1:0] BTA, // MSB 32 bits
 		output reg hit,
 		output reg [39:0] cache0, cache1, cache2
-
+		// output reg [2:0] lastUsedID
 	);
 	
 	// reg [39:0] cache [0:2]; // First 8 bits are PC, Remaining 32 bits are BTA
@@ -22,11 +25,15 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 			cache2 = 40'h0000003316;
 		end
 	
-	always @(pc or reset)
+	always @(reset or pc or pcOfAluBranchAddress or aluBranchAddress or branchTakenE or branchPredictedE)
 		begin
 			if (reset == 1)
 				begin
 					lastUsedID = 4; // Reset signal
+				end
+			else if ((cache0[7:0] != pcOfAluBranchAddress[7:0]) && (cache1[7:0] != pcOfAluBranchAddress[7:0]) && (cache2[7:0] != pcOfAluBranchAddress[7:0]) && (branchTakenE == 1) && (branchPredictedE == 0))
+				begin
+					lastUsedID = 3; // It could not find it in the BTB
 				end
 			else if (cache0[7:0] == pc)
 				begin
@@ -45,10 +52,6 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 					hit = 1;
 					BTA = cache2[39:8];
 					lastUsedID = 2;
-				end
-			else if ((cache0[7:0] != pc) && (cache1[7:0] != pc) && (cache2[7:0] != pc))
-				begin
-					lastUsedID = 3; // It could not find it in the BTB
 				end
 		end
 
@@ -87,7 +90,7 @@ module BTB #(parameter W_PC = 8, W_BTA = 32)
 				begin
 					temp0 = cache0;
 					temp1 = cache1;
-					cache0 = {aluBranchAddress,pc};
+					cache0 = {aluBranchAddress,pcOfAluBranchAddress[7:0]};
 					cache1 = temp0;
 					cache2 = temp1;
  				end

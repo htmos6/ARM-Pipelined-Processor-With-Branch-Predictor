@@ -15,10 +15,8 @@ from cocotb.binary import BinaryValue
 @cocotb.test()
 async def BTB(dut):
      #start the clock
-     await cocotb.start(Clock(dut.clk, 10, 'us').start(start_high=False))
+     #await cocotb.start(Clock(dut.clk, 10, 'us').start(start_high=False))
      #set clkedge as the FallingEdge for triggers
-     clkedge = RisingEdge(dut.clk)
-     await clkedge
      dut.aluBranchAddress.value = 0x00000000
 
      # cache0 --> 1108 
@@ -64,13 +62,12 @@ async def BTB(dut):
      assert dut.cache2.value != 0x0000001109
      assert dut.cache2.value == 0x0000001108
 
-     # dut.pc.value = 0x12
-     dut.pcOfAluBranchAddress.value = 0x0000000028
      dut.aluBranchAddress.value = 0x00000044
+     dut.pcOfAluBranchAddress.value = 0x00000020
      dut.branchTakenE.value = 1
      dut.branchPredictedE.value = 0
      await Timer(2, units="us")
-     assert dut.cache0.value == 0x0000004428
+     assert dut.cache0.value == 0x0000004420
      assert dut.cache1.value == 0x0000003316
      assert dut.cache2.value == 0x0000002212
 
