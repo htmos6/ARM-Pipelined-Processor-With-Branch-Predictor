@@ -19,6 +19,7 @@ async def BTB(dut):
      #set clkedge as the FallingEdge for triggers
      clkedge = RisingEdge(dut.clk)
      await clkedge
+     dut.aluBranchAddress.value = 0x00000000
 
      # cache0 --> 1108 
      # cache1 --> 2212 
@@ -63,24 +64,16 @@ async def BTB(dut):
      assert dut.cache2.value != 0x0000001109
      assert dut.cache2.value == 0x0000001108
 
+     dut.pc.value = 0x20
+     dut.aluBranchAddress.value = 0x00000044
+     await Timer(2, units="us")
+     assert dut.cache0.value == 0x0000004420
+     assert dut.cache1.value == 0x0000003316
+     assert dut.cache2.value == 0x0000002212
+
 
      dut.reset.value = 1
      await Timer(2, units="us")
      assert dut.cache0.value == 0x0000000000
      assert dut.cache1.value == 0x0000000000
      assert dut.cache2.value == 0x0000000000
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
