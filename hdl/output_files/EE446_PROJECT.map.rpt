@@ -1,5 +1,5 @@
 Analysis & Synthesis report for EE446_PROJECT
-Tue Jun 13 19:40:45 2023
+Tue Jun 13 23:05:53 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -19,6 +19,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
  11. Parameter Settings for User Entity Instance: Top-level Entity: |BTB
  12. Elapsed Time Per Partition
  13. Analysis & Synthesis Messages
+ 14. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -44,14 +45,14 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +---------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Jun 13 19:40:45 2023      ;
+; Analysis & Synthesis Status     ; Successful - Tue Jun 13 23:05:53 2023      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; EE446_PROJECT                              ;
 ; Top-level Entity Name           ; BTB                                        ;
 ; Family                          ; Cyclone V                                  ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
 ; Total registers                 ; 0                                          ;
-; Total pins                      ; 195                                        ;
+; Total pins                      ; 229                                        ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
 ; Total DSP Blocks                ; 0                                          ;
@@ -171,29 +172,29 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 163         ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 321         ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 4           ;
-;     -- 5 input functions                    ; 75          ;
-;     -- 4 input functions                    ; 8           ;
-;     -- <=3 input functions                  ; 234         ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 195         ;
-; Total DSP Blocks                            ; 0           ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 85          ;
-; Total fan-out                               ; 1400        ;
-; Average fan-out                             ; 1.97        ;
-+---------------------------------------------+-------------+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimate of Logic utilization (ALMs needed) ; 200                 ;
+;                                             ;                     ;
+; Combinational ALUT usage for logic          ; 344                 ;
+;     -- 7 input functions                    ; 0                   ;
+;     -- 6 input functions                    ; 56                  ;
+;     -- 5 input functions                    ; 40                  ;
+;     -- 4 input functions                    ; 50                  ;
+;     -- <=3 input functions                  ; 198                 ;
+;                                             ;                     ;
+; Dedicated logic registers                   ; 0                   ;
+;                                             ;                     ;
+; I/O pins                                    ; 229                 ;
+; Total DSP Blocks                            ; 0                   ;
+; Maximum fan-out node                        ; lastUsedID.010_4707 ;
+; Maximum fan-out                             ; 123                 ;
+; Total fan-out                               ; 1710                ;
+; Average fan-out                             ; 2.13                ;
++---------------------------------------------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -201,7 +202,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; |BTB                       ; 321 (321)         ; 0 (0)        ; 0                 ; 0          ; 195  ; 0            ; |BTB                ; work         ;
+; |BTB                       ; 344 (344)         ; 0 (0)        ; 0                 ; 0          ; 229  ; 0            ; |BTB                ; work         ;
 +----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -311,7 +312,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; cache1[25]$latch                                     ; cache0[39]          ; yes                    ;
 ; cache1[26]$latch                                     ; cache0[39]          ; yes                    ;
 ; cache1[27]$latch                                     ; cache0[39]          ; yes                    ;
-; Number of user-specified and inferred latches = 152  ;                     ;                        ;
+; Number of user-specified and inferred latches = 157  ;                     ;                        ;
 +------------------------------------------------------+---------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
@@ -337,9 +338,9 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |BTB|BTA[1]                ;
-; 3:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |BTB|cache2[36]            ;
+; 3:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |BTB|cache2[37]            ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |BTB|lastUsedID.010        ;
-; 4:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |BTB|cache1[1]             ;
+; 4:1                ; 40 bits   ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; No         ; |BTB|cache1[2]             ;
 ; 4:1                ; 40 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |BTB|cache0[0]             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
@@ -370,7 +371,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue Jun 13 19:40:43 2023
+    Info: Processing started: Tue Jun 13 23:05:51 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off EE446_PROJECT -c EE446_PROJECT
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file topmodule.v
@@ -423,187 +424,198 @@ Info (12021): Found 1 design units, including 1 entities, in source file ghr.v
     Info (12023): Found entity 1: GHR
 Info (12021): Found 1 design units, including 1 entities, in source file btb.v
     Info (12023): Found entity 1: BTB
+Info (12021): Found 1 design units, including 1 entities, in source file pht.v
+    Info (12023): Found entity 1: PHT
 Warning (10222): Verilog HDL Parameter Declaration warning at shifter.v(13): Parameter Declaration in module "shifter" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Warning (10222): Verilog HDL Parameter Declaration warning at ALU.v(24): Parameter Declaration in module "ALU" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List
 Info (12127): Elaborating entity "BTB" for the top level hierarchy
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(31): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
 Warning (10235): Verilog HDL Always Construct warning at BTB.v(34): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(37): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(40): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(43): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(46): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(25): inferring latch(es) for variable "hit", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(25): inferring latch(es) for variable "BTA", which holds its previous value in one or more paths through the always construct
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(61): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(62): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(63): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(67): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(68): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(69): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(75): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(76): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(88): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(89): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(90): variable "aluBranchAddress" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10235): Verilog HDL Always Construct warning at BTB.v(90): variable "pc" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(57): inferring latch(es) for variable "cache0", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(57): inferring latch(es) for variable "cache1", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(57): inferring latch(es) for variable "cache2", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(57): inferring latch(es) for variable "temp0", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at BTB.v(57): inferring latch(es) for variable "temp1", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "cache2[0]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[1]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[2]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[3]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[4]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[5]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[6]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[7]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[8]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[9]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[10]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[11]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[12]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[13]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[14]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[15]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[16]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[17]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[18]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[19]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[20]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[21]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[22]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[23]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[24]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[25]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[26]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[27]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[28]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[29]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[30]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[31]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[32]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[33]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[34]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[35]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[36]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[37]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[38]" at BTB.v(65)
-Info (10041): Inferred latch for "cache2[39]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[0]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[1]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[2]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[3]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[4]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[5]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[6]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[7]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[8]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[9]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[10]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[11]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[12]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[13]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[14]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[15]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[16]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[17]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[18]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[19]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[20]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[21]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[22]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[23]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[24]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[25]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[26]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[27]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[28]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[29]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[30]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[31]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[32]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[33]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[34]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[35]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[36]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[37]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[38]" at BTB.v(65)
-Info (10041): Inferred latch for "cache1[39]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[0]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[1]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[2]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[3]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[4]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[5]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[6]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[7]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[8]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[9]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[10]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[11]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[12]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[13]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[14]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[15]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[16]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[17]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[18]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[19]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[20]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[21]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[22]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[23]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[24]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[25]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[26]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[27]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[28]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[29]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[30]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[31]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[32]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[33]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[34]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[35]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[36]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[37]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[38]" at BTB.v(65)
-Info (10041): Inferred latch for "cache0[39]" at BTB.v(65)
-Info (10041): Inferred latch for "BTA[0]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[1]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[2]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[3]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[4]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[5]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[6]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[7]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[8]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[9]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[10]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[11]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[12]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[13]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[14]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[15]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[16]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[17]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[18]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[19]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[20]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[21]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[22]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[23]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[24]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[25]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[26]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[27]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[28]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[29]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[30]" at BTB.v(31)
-Info (10041): Inferred latch for "BTA[31]" at BTB.v(31)
-Info (10041): Inferred latch for "hit" at BTB.v(31)
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(34): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(34): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(38): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(41): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(44): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(47): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(50): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(53): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(28): inferring latch(es) for variable "lastUsedID", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(28): inferring latch(es) for variable "hit", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(28): inferring latch(es) for variable "BTA", which holds its previous value in one or more paths through the always construct
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(64): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(65): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(66): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(70): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(71): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(72): variable "cache2" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(78): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(79): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(91): variable "cache0" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(92): variable "cache1" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(93): variable "aluBranchAddress" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10235): Verilog HDL Always Construct warning at BTB.v(93): variable "pcOfAluBranchAddress" is read inside the Always Construct but isn't in the Always Construct's Event Control
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(60): inferring latch(es) for variable "cache0", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(60): inferring latch(es) for variable "cache1", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(60): inferring latch(es) for variable "cache2", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(60): inferring latch(es) for variable "temp0", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at BTB.v(60): inferring latch(es) for variable "temp1", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "cache2[0]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[1]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[2]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[3]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[4]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[5]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[6]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[7]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[8]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[9]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[10]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[11]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[12]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[13]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[14]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[15]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[16]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[17]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[18]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[19]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[20]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[21]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[22]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[23]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[24]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[25]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[26]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[27]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[28]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[29]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[30]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[31]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[32]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[33]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[34]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[35]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[36]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[37]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[38]" at BTB.v(68)
+Info (10041): Inferred latch for "cache2[39]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[0]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[1]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[2]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[3]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[4]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[5]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[6]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[7]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[8]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[9]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[10]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[11]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[12]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[13]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[14]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[15]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[16]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[17]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[18]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[19]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[20]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[21]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[22]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[23]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[24]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[25]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[26]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[27]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[28]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[29]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[30]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[31]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[32]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[33]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[34]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[35]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[36]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[37]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[38]" at BTB.v(68)
+Info (10041): Inferred latch for "cache1[39]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[0]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[1]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[2]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[3]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[4]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[5]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[6]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[7]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[8]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[9]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[10]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[11]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[12]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[13]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[14]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[15]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[16]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[17]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[18]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[19]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[20]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[21]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[22]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[23]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[24]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[25]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[26]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[27]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[28]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[29]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[30]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[31]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[32]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[33]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[34]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[35]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[36]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[37]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[38]" at BTB.v(68)
+Info (10041): Inferred latch for "cache0[39]" at BTB.v(68)
+Info (10041): Inferred latch for "BTA[0]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[1]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[2]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[3]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[4]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[5]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[6]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[7]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[8]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[9]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[10]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[11]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[12]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[13]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[14]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[15]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[16]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[17]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[18]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[19]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[20]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[21]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[22]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[23]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[24]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[25]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[26]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[27]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[28]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[29]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[30]" at BTB.v(34)
+Info (10041): Inferred latch for "BTA[31]" at BTB.v(34)
+Info (10041): Inferred latch for "hit" at BTB.v(34)
+Info (10041): Inferred latch for "lastUsedID.100" at BTB.v(34)
+Info (10041): Inferred latch for "lastUsedID.011" at BTB.v(34)
+Info (10041): Inferred latch for "lastUsedID.010" at BTB.v(34)
+Info (10041): Inferred latch for "lastUsedID.001" at BTB.v(34)
+Info (10041): Inferred latch for "lastUsedID.000" at BTB.v(34)
 Warning (13012): Latch BTA[0]$latch has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[0]$latch
 Warning (13012): Latch BTA[1]$latch has unsafe behavior
@@ -669,260 +681,291 @@ Warning (13012): Latch BTA[30]$latch has unsafe behavior
 Warning (13012): Latch BTA[31]$latch has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[0]$latch
 Warning (13012): Latch cache0[0]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[0]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[1]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[1]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[2]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[2]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[3]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[3]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[4]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[4]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[5]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[5]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[6]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[6]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[7]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal pc[7]
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[8]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[9]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[10]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[11]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[12]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[13]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[14]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[15]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[16]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[17]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[18]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[19]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[20]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[21]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[22]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[23]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[24]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[25]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[26]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[27]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[28]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[29]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[30]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[31]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[32]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[33]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[34]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[35]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[36]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[37]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[38]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache0[39]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.010_4707
 Warning (13012): Latch cache1[0]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[0]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[1]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[1]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[2]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[2]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[3]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[3]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[4]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[4]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[5]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[5]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[6]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[6]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[7]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache0[7]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[8]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[9]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[10]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[11]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[12]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[13]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[14]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[15]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[16]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[17]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[18]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[19]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[20]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[21]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[22]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[23]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[24]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[25]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[26]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[27]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[28]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[29]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[30]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[31]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[32]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[33]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[34]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[35]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[36]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[37]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[38]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache1[39]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[0]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[0]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[1]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[1]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[2]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[2]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[3]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[3]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[4]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[4]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[5]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[5]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[6]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[6]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[7]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal cache1[7]$latch
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[8]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[9]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[10]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[11]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[12]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[13]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[14]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[15]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[16]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[17]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[18]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[19]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[20]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[21]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[22]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[23]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[24]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[25]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[26]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[27]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[28]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[29]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[30]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[31]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[32]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[33]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[34]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[35]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[36]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[37]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[38]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13012): Latch cache2[39]$latch has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal reset
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal lastUsedID.100_4685
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "hit" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/Legion/Desktop/Quartus/EE446-LABORATORY/Pipelined-Processor/Pipelined-Processor/hdl/output_files/EE446_PROJECT.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
+Warning (21074): Design contains 25 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "clk"
-Info (21057): Implemented 516 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 42 input pins
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[8]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[9]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[10]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[11]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[12]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[13]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[14]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[15]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[16]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[17]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[18]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[19]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[20]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[21]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[22]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[23]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[24]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[25]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[26]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[27]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[28]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[29]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[30]"
+    Warning (15610): No output dependent on input pin "pcOfAluBranchAddress[31]"
+Info (21057): Implemented 573 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 76 input pins
     Info (21059): Implemented 153 output pins
-    Info (21061): Implemented 321 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 336 warnings
-    Info: Peak virtual memory: 4679 megabytes
-    Info: Processing ended: Tue Jun 13 19:40:46 2023
-    Info: Elapsed time: 00:00:03
+    Info (21061): Implemented 344 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 364 warnings
+    Info: Peak virtual memory: 4683 megabytes
+    Info: Processing ended: Tue Jun 13 23:05:53 2023
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Legion/Desktop/Quartus/EE446-LABORATORY/Pipelined-Processor/Pipelined-Processor/hdl/output_files/EE446_PROJECT.map.smsg.
 
 
