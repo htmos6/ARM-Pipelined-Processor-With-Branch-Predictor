@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1686675717" />
+    <testcase name="BTB" classname="BTB" file="C:\Users\Legion\Desktop\Quartus\EE446-LABORATORY\Pipelined-Processor\Pipelined-Processor\tests\btb_test\tests\BTB.py" lineno="15" time="0.0" sim_time_ns="20000" ratio_time="inf" />
+  </testsuite>
+</testsuites>

@@ -1,5 +1,5 @@
 Flow report for EE446_PROJECT
-Sat Jun 10 18:26:51 2023
+Tue Jun 13 19:40:45 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,16 +40,16 @@ applicable agreement for further details.
 +------------------------------------------------------------------------------+
 ; Flow Summary                                                                 ;
 +---------------------------------+--------------------------------------------+
-; Flow Status                     ; Successful - Sat Jun 10 18:26:51 2023      ;
+; Flow Status                     ; Successful - Tue Jun 13 19:40:45 2023      ;
 ; Quartus II 64-Bit Version       ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                   ; EE446_PROJECT                              ;
-; Top-level Entity Name           ; GHR                                        ;
+; Top-level Entity Name           ; BTB                                        ;
 ; Family                          ; Cyclone V                                  ;
 ; Device                          ; 5CSEMA5F31C6                               ;
 ; Timing Models                   ; Preliminary                                ;
 ; Logic utilization (in ALMs)     ; N/A                                        ;
-; Total registers                 ; 2                                          ;
-; Total pins                      ; 7                                          ;
+; Total registers                 ; 0                                          ;
+; Total pins                      ; 195                                        ;
 ; Total virtual pins              ; 0                                          ;
 ; Total block memory bits         ; 0                                          ;
 ; Total DSP Blocks                ; 0                                          ;
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/10/2023 18:26:50 ;
+; Start date & time ; 06/13/2023 19:40:43 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; EE446_PROJECT       ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+---------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 255543658489611.168641081012880       ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 255543658489611.168667444307780       ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                   ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                   ; --            ; --          ; eda_board_design_symbol           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                   ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -88,13 +88,13 @@ applicable agreement for further details.
 ; EDA_TIME_SCALE                      ; 1 ps                                  ; --            ; --          ; eda_simulation                    ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --                                ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                     ; --            ; --          ; --                                ;
-; PARTITION_COLOR                     ; 16764057                              ; --            ; GHR         ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; GHR         ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; GHR         ; Top                               ;
+; PARTITION_COLOR                     ; 16764057                              ; --            ; BTB         ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                 ; --            ; BTB         ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                ; --            ; BTB         ; Top                               ;
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                   ; --            ; --          ; --                                ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --                                ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                          ; --            ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; GHR                                   ; EE446_PROJECT ; --          ; --                                ;
+; TOP_LEVEL_ENTITY                    ; BTB                                   ; EE446_PROJECT ; --          ; --                                ;
 +-------------------------------------+---------------------------------------+---------------+-------------+-----------------------------------+
 
 
@@ -103,8 +103,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:01     ; 1.0                     ; 4669 MB             ; 00:00:01                           ;
-; Total                ; 00:00:01     ; --                      ; --                  ; 00:00:01                           ;
+; Analysis & Synthesis ; 00:00:02     ; 1.0                     ; 4668 MB             ; 00:00:01                           ;
+; Total                ; 00:00:02     ; --                      ; --                  ; 00:00:01                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
