@@ -1,0 +1,12 @@
+MOV R0, #0x0
+MOVS R2, #0x0
+MOV R3, #0x04
+LDR R1, [R3]     
+L1: CMP R1, R0
+BEQ done
+ADD R3, #0x4
+SUB R1, #0x1
+LDR R4, [R3]
+ADDS R2, R2, R4
+B L1
+done: B done

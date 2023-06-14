@@ -1,0 +1,10 @@
+MOV R15, #28
+MOV R5, #1
+MOV R6, #1
+MOV R7, #1
+MOV R8, #1
+MOV R9, #1
+MOV R10, #1
+MOV R11, #1
+MOV R12, #1
+MOV R13, #1

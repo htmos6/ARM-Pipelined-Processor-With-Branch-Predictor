@@ -1,0 +1,10 @@
+MOV R2, #5
+LDR R3, [R1, #40]
+ADD R4, R2, R3
+MOV R5, #1
+MOV R6, #1
+MOV R7, #1
+MOV R8, #1
+MOV R9, #1
+MOV R10, #1
+MOV R11, #1
