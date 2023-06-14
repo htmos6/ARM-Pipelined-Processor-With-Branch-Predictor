@@ -88,10 +88,13 @@ Computer Design Laboratory Work 1/.gitignore
 *.vho
 *.vo
 *.xrf
+*.bsf
+*.bak
 msim_transcript
 transcript
 _info
 _vmake
 *.bak*
 *hdl/db/.cnf.cdb*
+/db
 hdl/db/EE446_PROJECT.(0).cnf.cdb

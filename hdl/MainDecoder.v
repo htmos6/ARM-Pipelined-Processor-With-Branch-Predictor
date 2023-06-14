@@ -11,11 +11,19 @@ module MainDecoder(
 	output reg [1:0] ImmSrc, 
 	output reg [2:0] RegSrc,    // no relative to PC branch
 	output reg [4:0] shamt,
-	output reg [1:0] shiftControl);
+	output reg [1:0] shiftControl,
+	output reg RA1D_valid, RA2D_valid, WA3D_valid);
 
 assign ALUOp = (Op == 2'b00) & (~( bx_inst == 24'b000100101111111111110001));
 assign Branch = (Op == 2'b10);
 assign MemW = (Op == 2'b01) & (Funct[0] == 1'b0);			// STR
+	
+/*
+// will be modified later
+assign RA1D_valid = 1'b1;
+assign RA2D_valid = 1'b1;
+assign WA3D_valid	= 1'b1;
+*/	
 	
 always @(*)
 begin
@@ -38,6 +46,13 @@ begin
 			shiftControl = 0;		// no shift, dont care
 			//ImmSrc dont care
 			ImmSrc = 2'b00;
+			
+			
+			// valid signals
+			RA1D_valid = 1'b0;
+			RA2D_valid = 1'b1;
+			WA3D_valid = 1'b0;
+			
 		end
 		else
 		begin
@@ -63,6 +78,13 @@ begin
 				ALUSrc = 1'b0; 		// RD2
 				shamt = shamt5;
 				shiftControl = sh;
+				
+				
+				// valid signals
+				RA1D_valid = 1'b1;
+				RA2D_valid = 1'b1;
+				WA3D_valid = 1'b1;
+				
 			end
 			1:
 			begin
@@ -71,6 +93,14 @@ begin
 				ALUSrc = 1'b1;			//ExtImm
 				shamt = {1'b0,rot} << 1;			//rot*2
 				shiftControl = 2'b11;				//ror
+				
+				// valid signals
+				if (Funct[4:1] == 4'b1101) RA1D_valid = 1'b0;   //Move
+				else RA1D_valid = 1'b1;
+				
+				RA2D_valid = 1'b0;
+				WA3D_valid = 1'b1;
+				
 			end
 			endcase
 		end
@@ -95,6 +125,13 @@ begin
 			RegW = 1'b0;
 			// MemtoReg dont care
 			MemtoReg = 1'b0;
+			
+			
+			// valid signals
+			RA1D_valid = 1'b1;
+			RA2D_valid = 1'b1;
+			WA3D_valid = 1'b0;
+			
 		end
 		1:
 		begin
@@ -104,6 +141,13 @@ begin
 			RegSrc[1] = 1'b0;
 			RegW = 1'b1;
 			MemtoReg = 1'b1;
+			
+			
+			// valid signals
+			RA1D_valid = 1'b1;
+			RA2D_valid = 1'b0;
+			WA3D_valid = 1'b1;
+			
 		end
 		endcase
 	end
@@ -111,6 +155,12 @@ begin
 	begin
 		//branch
 		ImmSrc = 2'b10;				// imm24
+		
+		// valid signals
+		RA1D_valid = 1'b1;
+		RA2D_valid = 1'b0;
+		WA3D_valid = 1'b0;
+		
 		case(L)
 		0:
 		begin
@@ -124,6 +174,7 @@ begin
 			shamt = 0;				// no shift
 			shiftControl = 0;		// no shift, dont care
 			MemtoReg = 1'b0;		// ALU result
+			
 		end
 		1:
 		begin
@@ -137,6 +188,7 @@ begin
 			shiftControl = 0;		// no shift, dont care
 			RegW = 1'b1;			
 			MemtoReg = 1'b0;		// ALU result
+			
 		end
 		endcase
 	end
@@ -151,6 +203,13 @@ begin
 		shamt = 0;				
 		shiftControl = 0;		
 		ImmSrc = 2'b00;
+		
+		
+		// valid signals
+		RA1D_valid = 1'b0;
+		RA2D_valid = 1'b0;
+		WA3D_valid = 1'b0;
+		
 	end
 	endcase
 end	

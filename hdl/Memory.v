@@ -10,7 +10,7 @@ module Memory #(parameter BYTE_SIZE = 4, ADDR_WIDTH = 12) (
 	//input [7:0] address,
 	output reg [(8*BYTE_SIZE-1):0] RD);
 
-	reg [7:0] mem [0:99];				// byte-addressable, 12-bit address space
+	reg [7:0] mem [0:19];				// byte-addressable, 12-bit address space
 	//reg [7:0] mem [0:255];
 	
 initial begin

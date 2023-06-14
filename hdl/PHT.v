@@ -5,7 +5,7 @@ module PHT
 		input [2:0] PHTinpId,
 		input [0:0] branchTakenE,
 		input [0:0] branchPredictedE,
-		output [0:0] branchPredictionResult
+		output branchPredictionResult
 	);
 
 	reg [0:0] PHT_index [7:0];

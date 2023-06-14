@@ -6,7 +6,8 @@ module GHR #(parameter W = 3)
 		input inp,	
 		output reg [W-1:0] out
 	);
-
+	// shift = BranchE 
+	// inp = BranchTakenE
 
 	always @(posedge clk)
 		begin

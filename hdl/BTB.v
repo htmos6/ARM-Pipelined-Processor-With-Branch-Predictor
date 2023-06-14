@@ -1,18 +1,18 @@
 module BTB #(parameter W_PC = 8, W_BTA = 32) 
 	(
-		input clk,
 		input reset,
 		input [W_PC-1:0] pc, // LSB 8 bits
 		input [31:0] aluBranchAddress,
-		input [31:0] pcOfAluBranchAddress,
+		input [31:0] pcOfAluBranchAddress, // pc + 4
 		input [0:0] branchTakenE,
 		input [0:0] branchPredictedE,
 		output reg [W_BTA-1:0] BTA, // MSB 32 bits
-		output reg hit,
-		output reg [39:0] cache0, cache1, cache2
+		output reg hit
+		//output reg [39:0] cache0, cache1, cache2
 		// output reg [2:0] lastUsedID
 	);
 	
+	reg [39:0] cache0, cache1, cache2;
 	reg [39:0] pcOfAluBranchAddressReg; // First 8 bits are PC, Remaining 32 bits are BTA
 	reg [2:0] lastUsedID;
 	reg [39:0] temp0, temp1;

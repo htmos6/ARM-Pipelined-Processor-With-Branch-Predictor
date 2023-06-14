@@ -15,13 +15,15 @@ module Decoder_control(
 	output [3:0] ALUControl,
 	output [4:0] shamt,
 	output [1:0] shiftControl,
-	output BranchD);
+	output BranchD,
+	output RA1D_valid, RA2D_valid, WA3D_valid);
 	
 wire ALUOp, Branch;
 
 assign BranchD = Branch;
 	
 ALUDecoder ALUdecoder(
+	.Op(Op), 
 	.Funct(Funct[4:0]),
 	.ALUOp(ALUOp), .Branch(Branch),
 	.bx_inst(bx_inst),
@@ -48,6 +50,7 @@ MainDecoder mainDecoder(
 	.ImmSrc(ImmSrc), 
 	.RegSrc(RegSrc),    
 	.shamt(shamt),
-	.shiftControl(shiftControl));
+	.shiftControl(shiftControl),
+	.RA1D_valid(RA1D_valid), .RA2D_valid(RA2D_valid), .WA3D_valid(WA3D_valid));
 
 endmodule 

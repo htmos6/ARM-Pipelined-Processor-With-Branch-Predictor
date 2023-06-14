@@ -1,4 +1,5 @@
 module ALUDecoder(
+	input [1:0] Op, 
 	input [4:0] Funct,
 	input ALUOp, Branch,
 	input [23:0] bx_inst,
@@ -18,13 +19,13 @@ parameter AND=4'b0000,
 		  Bit_Clear=4'b1110,
 		  Move_Not=4'b1111;
 	
-always @(Funct, ALUOp, Branch, bx_inst)	
+always @(Funct, ALUOp, Branch, bx_inst, Op)	
 begin
 	case(ALUOp)
 	0:
 	begin
 		FlagW = 2'b00;
-		if (( bx_inst == 24'b000100101111111111110001) & (Branch == 1)) ALUControl = Move;	// BX
+		if (( bx_inst == 24'b000100101111111111110001) & (Op == 2'b00)) ALUControl = Move;	// BX
 		else ALUControl = Addition;		
 	end
 	1:

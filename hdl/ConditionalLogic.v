@@ -5,7 +5,7 @@ module ConditionalLogic(
 	input PCS, Branch,
 	input RegW, MemW,
 	input clk, rst,
-	output PCWrite, RegWrite, MemWrite,
+	output PCWrite, RegWrite, MemWrite, PCWriteBranch,
 	output ALU_CI,
 	output CondEx,
 	output [3:0] Flags_wire,
@@ -23,7 +23,8 @@ ConditionCheck conditionCheck(
 	
 assign FlagWrite[1] = FlagW[1] & CondEx;
 assign FlagWrite[0] = FlagW[0] & CondEx;
-assign PCWrite = (PCS | Branch) & CondEx;
+assign PCWrite = (PCS) & CondEx;
+assign PCWriteBranch = (Branch) & CondEx;
 assign RegWrite = RegW & CondEx;
 assign MemWrite = MemW & CondEx;
 assign ALU_CI = Flags[1];			//ALU Carry In
@@ -46,20 +47,5 @@ Register_sync_rw #(.WIDTH(2)) r2
 	  .DATA(ALUFlags[3:2]),
 	  .OUT(Flags[3:2])
     );
-	 
-	/*
-always @ (posedge clk)
-begin
-	if(FlagWrite[1])
-	begin
-		Flags[3:2] <= ALUFlags[3:2];
-	end
-	
-	if(FlagWrite[0])
-	begin
-		Flags[1:0] <= ALUFlags[1:0];
-	end
-	
-end		
-*/		
+	 	
 endmodule 
